@@ -1,4 +1,4 @@
-# WebMSISE00
+# WebMSISE00.jl
 
 *Accesses and runs the MSISE00 Earth atmosphere model on NASA's Model Web site.*
 
