@@ -12,14 +12,14 @@ end
 
 # ╔═╡ 1b7a3fe9-8716-427f-b796-ca94f7e48a09
 begin
-	Pkg.add(path="C:\\Users\\JEDALAB2\\Documents\\JuliaCodeAndNotebooks\\WebMSISE00")
+	Pkg.add(url="https://github.com/fyzycyst/WebMSISE00.jl.git")
 	using WebMSISE00
 end
 
 # ╔═╡ d8961618-08aa-4424-9cba-960c5023d1fb
 begin
 	Pkg.add("Plots")
-	Pkg.add("StatsPlots")
+	Pkg.add("StatPlots")
 	Pkg.add("DataFrames")
 	using DataFrames
 	using Plots
@@ -31,7 +31,7 @@ using Plots.PlotMeasures
 
 # ╔═╡ 9ba46bb7-66de-4756-ba4e-613cb1e6f751
 md"""
-# Example use of _WebMSISE00_
+# Example use of _WebMSISE00.jl_
 
 This notebook just has some quick & dirty examples of generating an atmosphere and
 plotting the density profile(s) vs. altitude.
@@ -45,9 +45,6 @@ _First, we load all the packages needed._
 In addition to `WebMSISE00`, we load in `Plots`, `StatPlots`, and `DataFrames`, since
 we're going to plot from the returned dataframe.
 """
-
-# ╔═╡ b9d1d849-f676-45ce-a720-bf2611b30a35
-# before deploying, replace local path to package (below) with GitHub link
 
 # ╔═╡ dabf432d-434a-4526-a61e-e4d2d61d77d3
 plotly()
@@ -137,17 +134,16 @@ output_low = ReadMSISE(input_low)
 begin
 	@df output_low plot(cols(1), cols(2:4), 
 		yaxis=:log10, 
-		left_margin=25px,
+		size=(650,600),
 		ylims=(1e-19,1e20),
-		legend=(0.66,0.95),
+		label=["O" "N2" "O2"],
+		legend=(0.8,0.95),
 		title="Density of atmospheric constituents with altitude",
 		xlabel="Altitude in km",
 		ylabel="Number density in cm-3"
 	)
-		@df output_low plot!(cols(1), cols(6:10), 
-		yaxis=:log10, 
-		left_margin=25px,
-		ylims=(1e-19,1e20)
+	@df output_low plot!(cols(1), cols(6:10),
+		label=["He" "Ar" "H" "N" "Anom. O"]
 	)
 end	
 
@@ -189,7 +185,7 @@ output_high = ReadMSISE(input_high)
 begin
 	@df output_low plot(cols(1), cols(5), 
 		yaxis=:log10, 
-		left_margin=25px,
+		size=(625,600),
 		ylims=(1e-18,1e-3),
 		legend=(0.75,0.9),
 		label="Low Activity",
@@ -210,7 +206,6 @@ The immediate idea I had for application of this in an instructional environment
 # ╟─9ba46bb7-66de-4756-ba4e-613cb1e6f751
 # ╟─db0d3958-a55a-4d49-b27e-c586007c8676
 # ╠═47b82739-35ba-496c-b5e0-2e73e59cf1c4
-# ╠═b9d1d849-f676-45ce-a720-bf2611b30a35
 # ╠═1b7a3fe9-8716-427f-b796-ca94f7e48a09
 # ╠═d8961618-08aa-4424-9cba-960c5023d1fb
 # ╠═28dc8709-edc3-4754-a2dd-fc98d0890469
@@ -219,13 +214,13 @@ The immediate idea I had for application of this in an instructional environment
 # ╟─177978c2-935d-432e-b5e3-c623d5f6b492
 # ╟─234718cf-381a-4d06-8403-67d993922b50
 # ╟─d56a1b81-1d17-463b-b5d1-751cf531da76
-# ╟─50fc3dd4-fc7b-4283-804f-053c29edbe72
+# ╠═50fc3dd4-fc7b-4283-804f-053c29edbe72
 # ╠═a9c5f4df-6c71-449b-8ae9-8195c5b62357
-# ╟─150bacf2-b05e-42cf-957a-46df242d4d3a
+# ╠═150bacf2-b05e-42cf-957a-46df242d4d3a
 # ╟─189a1664-bc02-40f0-8347-c5725426faa4
 # ╟─b4e055c8-cedc-4aef-b170-f51f5afe17d3
 # ╟─1d49508e-9a41-4835-9499-ba0f08082d87
-# ╟─a4a3407d-080c-4ac2-b9c6-0a96e24cc78c
+# ╠═a4a3407d-080c-4ac2-b9c6-0a96e24cc78c
 # ╠═d15dc97c-f349-4dfe-be7e-489acca266df
-# ╟─11b1301f-92fc-4425-af9e-557036377384
+# ╠═11b1301f-92fc-4425-af9e-557036377384
 # ╟─603f9f54-a9f0-4320-8223-d23617b61224

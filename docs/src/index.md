@@ -26,7 +26,7 @@ DEPENDENCIES: the following package versions were used
 
 ## Installation
 The package can be installed by pointing at the GitHub repo:
-{insert link to repo}
+https://github.com/fyzycyst/WebMSISE00
 
 ## Project Status
 This project was done purely as an exercise to learn Julia and, secondarily, to
