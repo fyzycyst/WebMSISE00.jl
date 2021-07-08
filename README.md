@@ -7,7 +7,7 @@ Accesses the NASA Model Web site to generate and retrieve MSISE00
 atmospheric model profiles.  Also contains routines for storing & retrieving 
 results to/from JLD2 files.
 
-For simple examples, see the accompanying Jupyter notebook.
+For simple examples, see the accompanying Pluto notebook.
 
 **NOTE** *Please do not abuse the NASA ModelWeb site!! If you anticipate 
 many runs, consider downloading the model code and running a local copy.*
